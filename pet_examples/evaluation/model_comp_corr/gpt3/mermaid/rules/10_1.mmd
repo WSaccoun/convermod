@@ -1,6 +1,0 @@
-graph LR
-1:startevent:((startevent)) --> 2:task:(MPON sends the dismissal to the MPOO) 
-2:task: --> 3:task:(MPOO reviews the dismissal)
-3:task: --> 4:exclusivegateway:{x} 
-4:exclusivegateway: --> |confirm|5:endevent:((endevent))
-4:exclusivegateway:{x}  -->|oppose|6:task:(MPOO opposes the dismissal of MPON) --> 5:endevent:((endevent))

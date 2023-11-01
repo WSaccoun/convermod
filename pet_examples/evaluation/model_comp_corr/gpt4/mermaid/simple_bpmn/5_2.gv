@@ -1,9 +1,0 @@
-graph TB
-    Start((Start)) --> VacationRequest
-    VacationRequest[Employee submits vacation request] --> SupervisorReview
-    SupervisorReview[Supervisor reviews request] --> Decision{Decision}
-    Decision -->|Approved| HRNotification
-    HRNotification[HR completes management procedures] --> End((End))
-    Decision -->|Rejected| RejectionReview
-    RejectionReview[Employee reviews rejection reasons] --> Start
-
