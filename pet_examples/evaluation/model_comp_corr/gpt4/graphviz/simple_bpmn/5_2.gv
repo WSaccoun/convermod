@@ -1,0 +1,19 @@
+digraph G {
+  rankdir = LR;
+  node [shape=box];
+  Start [shape=circle, label="Start"];
+  End [shape=doublecircle, label="End"];
+  Gateway1 [shape=diamond, label="Approved?"];
+  Gateway2 [shape=diamond, label=""];
+
+  Start -> "Submit Vacation Request";
+  "Submit Vacation Request" -> "Supervisor Review";
+  "Supervisor Review" -> Gateway1;
+  Gateway1 -> "Reject and Return" [label="No"];
+  "Reject and Return" -> "Review Rejection Reasons";
+  "Review Rejection Reasons" -> End;
+  Gateway1 -> Gateway2 [label="Yes"];
+  Gateway2 -> "Notify HR";
+  "Notify HR" -> "Complete Management Procedures";
+  "Complete Management Procedures" -> End;
+}

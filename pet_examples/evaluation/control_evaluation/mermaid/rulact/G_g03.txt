@@ -1,0 +1,21 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Create battle.net account)
+2:task: --> 3:task:(Check confirmation mail)
+3:task: --> 4:task:(Check WoW subscription)
+4:task: --> 5:exclusivegateway:{x}
+5:exclusivegateway:{x} --> |Credit Card| 6:task:(Enter credit card information)
+5:exclusivegateway:{x} --> |Bank Account| 7:task:(Enter IBAN and BIC numbers)
+6:task: --> 8:task:(Log into game)
+7:task: --> 8:task:
+8:task: --> 9:task:(Select realm)
+9:task: --> 10:task:(Select race)
+10:task: --> 11:task:(Select class)
+11:task: --> 12:task:(Come up with names)
+12:task: --> 13:task:(Enter names)
+13:task: --> 14:exclusivegateway:{x}
+14:exclusivegateway:{x} --> |Name Available| 15:task:(Confirm available name)
+14:exclusivegateway:{x} --> |Name Not Available| 13:task:
+15:task: --> 16:task:(Receive character selfies)
+16:task: --> 17:endevent:((endevent))
+17:endevent: --> 18:task:(Receive expansion release message)
+18:task: --> 19:endevent:((endevent))

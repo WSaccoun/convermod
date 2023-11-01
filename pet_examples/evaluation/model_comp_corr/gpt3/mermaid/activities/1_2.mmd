@@ -1,0 +1,12 @@
+graph LR
+A[Check defect] --> B[Calculate repair cost]
+B --> C{Customer decides?}
+C -- Yes --> D[Check hardware]
+C -- No --> E[Take computer home]
+D --> F[Repair hardware]
+F --> G[Check software]
+G --> H[Configure software]
+H --> I[Test system functionality]
+I --> J{Error detected?}
+J -- Yes --> K[Execute repair activity]
+J -- No --> L[Repair finished]

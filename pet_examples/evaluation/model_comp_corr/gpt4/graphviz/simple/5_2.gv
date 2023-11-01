@@ -1,0 +1,11 @@
+digraph G {
+  rankdir=LR;
+  node [shape=box];
+  "Employee submits vacation request" -> "Supervisor receives request";
+  "Supervisor receives request" -> "Supervisor approves or rejects request";
+  "Supervisor approves or rejects request" -> "Request is rejected";
+  "Request is rejected" -> "Employee reviews rejection reasons";
+  "Supervisor approves or rejects request" -> "Request is approved";
+  "Request is approved" -> "Notification to HR Representative";
+  "Notification to HR Representative" -> "HR completes management procedures";
+}

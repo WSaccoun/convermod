@@ -1,0 +1,8 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(INQ transmits request)
+2:task: --> 3:task:(IP checks request)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway: --> |yes|5:task:(IP answers question)
+4:exclusivegateway: --> |no|6:task:(Rejection)
+5:task: --> 7:task:(Transmission of data)
+7:task: --> id:endevent:((endevent))

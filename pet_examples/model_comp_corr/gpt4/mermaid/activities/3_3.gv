@@ -1,0 +1,10 @@
+graph TB
+    A[Registering a claim] --> B[Examination by claims officer]
+    B --> C[Writing settlement recommendation]
+    C --> D[Checking by senior officer]
+    D --> E{Marking claim as OK/Not OK}
+    E -->|Not OK| F[Sending back claim if Not OK]
+    F --> G[Repeating recommendation if Not OK]
+    G --> D
+    E -->|OK| H[Proceeding with claim handling if OK]
+

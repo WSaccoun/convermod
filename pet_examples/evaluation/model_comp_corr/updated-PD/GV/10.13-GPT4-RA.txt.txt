@@ -1,0 +1,20 @@
+digraph {
+rankdir=LR;
+"start_1"[shape=circle label=""];
+"end_1"[shape=doublecircle label=""];
+"INQ transmits data request"[shape=rectangle];
+"IP checks INQ's request"[shape=rectangle];
+"IP examines the request"[shape=rectangle];
+"seg_1"[shape=diamond label="X"];
+"IP transmits requested data"[shape=rectangle];
+"IP rejects the request"[shape=rectangle];
+
+"start_1" -> "INQ transmits data request"
+"INQ transmits data request" -> "IP checks INQ's request"
+"IP checks INQ's request" -> "IP examines the request"
+"IP examines the request" -> "seg_1"
+"seg_1" -> "IP transmits requested data"[label="Request approved"]
+"seg_1" -> "IP rejects the request"[label="Request rejected"]
+"IP transmits requested data" -> "end_1"
+"IP rejects the request" -> "end_1"
+}

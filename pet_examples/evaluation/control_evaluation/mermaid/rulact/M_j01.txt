@@ -1,0 +1,17 @@
+graph LR
+    1:startevent:((startevent)) --> 2:task:(Receive customer specifications)
+    2:task: --> 3:parallelgateway:{AND}
+    3:parallelgateway: --> 4:task:(Order chainsaw parts)
+    3:parallelgateway: --> 5:task:(Order chainsaw parts)
+    3:parallelgateway: --> 6:task:(Order chainsaw parts)
+    4:task: --> 7:task:(Inspect delivered parts)
+    5:task: --> 7:task:
+    6:task: --> 7:task:
+    7:task: --> 8:task:(Assemble chainsaw)
+    8:task: --> 9:task:(Send production updates)
+    9:task: --> 10:task:(Deliver first chainsaw)
+    10:task: --> 11:task:(Receive customer feedback)
+    11:task: --> 12:exclusivegateway:{x}
+    12:exclusivegateway: --> |Customer likes it| 13:task:(Produce remaining order)
+    12:exclusivegateway: --> |Customer doesn't like it| 2:task:
+    13:task: --> 14:endevent:((endevent))

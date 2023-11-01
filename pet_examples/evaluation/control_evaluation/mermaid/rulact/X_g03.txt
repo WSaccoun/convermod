@@ -1,0 +1,21 @@
+graph LR
+1:task:(Select a starting block) --> 2:task:(Run for 5km)
+2:task: --> 3:task:(Measure the time)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway:{x} --> |time < 25 min| 5:task:(Achieve goal time)
+4:exclusivegateway:{x} --> |time >= 25 min| 2:task: 
+5:task: --> 6:task:(Get starting number)
+6:task: --> 7:task:(Determine departure location)
+7:task: --> 8:exclusivegateway:{x}
+8:exclusivegateway:{x} --> |more than 1 hour left| 9:task:(Leave from home)
+8:exclusivegateway:{x} --> |less than 1 hour left| 10:task:(Leave from work)
+9:task: --> 11:parallelgateway:{AND}
+10:task: --> 11:parallelgateway:{AND}
+11:parallelgateway:{AND} --> 12:task:(Run at Night Run)
+11:parallelgateway:{AND} --> 13:task:(Drink while running)
+12:task: --> 14:task:(Receive final running time)
+13:task: --> 14:task:
+14:task: --> 15:task:(Enter information into app)
+15:task: --> 16:endevent:((endevent))
+14:task: --> 17:task:(Use fitness gadgets)
+17:task: --> 16:endevent:((endevent))

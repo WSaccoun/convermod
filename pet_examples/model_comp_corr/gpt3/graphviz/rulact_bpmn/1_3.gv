@@ -1,0 +1,15 @@
+digraph G {
+rankdir=LR;
+start_1 -> task1[shape=rectangle label="Take order"]
+task1 -> task2[shape=rectangle label="Submit ticket"]
+task2 -> seg_1[shape=diamond label="X"]
+seg_1 -> task3[shape=rectangle label="Order sommelier"]
+seg_1 -> task4[shape=rectangle label="Prepare cart"]
+task3 -> task5[shape=rectangle label="Fetch wine"]
+task4 -> task6[shape=rectangle label="Prepare drinks"]
+task5 -> spg_1[shape=diamond label="AND"]
+task6 -> spg_1
+spg_1 -> task7[shape=rectangle label="Deliver order"]
+task7 -> task8[shape=rectangle label="Debit account"]
+task8 -> end_1[shape=doublecircle label=""]
+}

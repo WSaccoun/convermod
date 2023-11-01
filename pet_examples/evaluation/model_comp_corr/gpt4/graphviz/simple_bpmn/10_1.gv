@@ -1,0 +1,13 @@
+digraph {
+  rankdir=LR;
+  node [shape=box];
+  Start [shape=circle, label=""];
+  End [shape=doublecircle, label=""];
+  Gateway1 [shape=diamond, label="Review Dismissal"];
+  Gateway2 [shape=diamond, label="Decision"];
+  
+  Start -> "MPON sends dismissal to MPOO" -> Gateway1;
+  Gateway1 -> "MPOO reviews dismissal" -> Gateway2;
+  Gateway2 -> "MPOO opposes dismissal" -> End;
+  Gateway2 -> "MPOO confirms dismissal" -> End;
+}

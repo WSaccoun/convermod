@@ -1,0 +1,15 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Enter topic of interest)
+2:task: --> 3:task:(Specify desired salary)
+3:task: --> 4:task:(Enter experience details)
+4:task: --> 5:task:(List hobbies)
+5:task: --> 6:task:(Receive offers)
+6:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway:{x} --> |Accept| 8:task:(Write weekly status updates)
+7:exclusivegateway:{x} --> |Deny| 6:task:
+8:task: --> 9:task:(Company writes status updates)
+9:task: --> 10:task:(Finish internship)
+10:task: --> 11:task:(Recommend company on Twitter)
+11:task: --> 12:parallelgateway:{AND}
+12:parallelgateway:{AND} --> 13:task:(Send separate tweets)
+12:parallelgateway:{AND} --> 14:endevent:((endevent))

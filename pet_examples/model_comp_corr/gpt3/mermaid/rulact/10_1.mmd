@@ -1,0 +1,9 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Send dismissal)
+2:task: --> 3:task:(Review dismissal)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway: --> 5:task:(Oppose dismissal)
+4:exclusivegateway: --> 6:task:(Confirm dismissal)
+5:task: --> 7:endevent:((endevent))
+6:task: --> 7:endevent:
+

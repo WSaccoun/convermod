@@ -1,0 +1,21 @@
+
+
+digraph G {
+    rankdir=LR;
+    Customer[shape=box];
+    CRS[shape=box];
+    RepairCost[shape=box];
+    Hardware[shape=box];
+    Software[shape=box];
+    Test[shape=box];
+    Error[shape=box];
+    Customer -> CRS;
+    CRS -> RepairCost;
+    RepairCost -> Hardware;
+    RepairCost -> Software;
+    Hardware -> Test;
+    Software -> Test;
+    Test -> Error;
+    Error -> Hardware;
+    Error -> Software;
+}

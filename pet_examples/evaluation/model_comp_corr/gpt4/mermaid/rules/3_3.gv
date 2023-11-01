@@ -1,0 +1,11 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Claim is registered)
+2:task:(Claim is registered) --> 3:task:(Claim is examined by claims officer)
+3:task:(Claim is examined by claims officer) --> 4:task:(Claims officer writes a settlement recommendation)
+4:task:(Claims officer writes a settlement recommendation) --> 5:task:(Recommendation is checked by senior claims officer)
+5:task:(Recommendation is checked by senior claims officer) --> 6:exclusivegateway:{x}
+6:exclusivegateway:{x} --> |Claim is Not OK| 7:task:(Claim is sent back to claims officer)
+7:task:(Claim is sent back to claims officer) --> 4:task:(Claims officer writes a settlement recommendation)
+6:exclusivegateway:{x} --> |Claim is OK| 8:task:(Claim handling process proceeds)
+8:task:(Claim handling process proceeds) --> 9:endevent:((endevent))
+

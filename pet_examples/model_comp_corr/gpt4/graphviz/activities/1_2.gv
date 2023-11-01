@@ -1,0 +1,11 @@
+digraph G {
+  "Check computer defect" -> "Calculate repair cost";
+  "Calculate repair cost" -> "Customer decision on cost";
+  "Customer decision on cost" -> "Check and repair hardware" [label="if cost is acceptable"];
+  "Customer decision on cost" -> "Finish repair" [label="if cost is not acceptable"];
+  "Check and repair hardware" -> "Check and configure software";
+  "Check and configure software" -> "Test system functionality";
+  "Test system functionality" -> "Execute arbitrary repair activity" [label="if error detected"];
+  "Test system functionality" -> "Finish repair" [label="if no error detected"];
+  "Execute arbitrary repair activity" -> "Test system functionality";
+}

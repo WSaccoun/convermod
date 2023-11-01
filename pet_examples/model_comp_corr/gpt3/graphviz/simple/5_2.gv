@@ -1,0 +1,13 @@
+
+
+digraph G {
+    rankdir=LR;
+    node [shape=box];
+    Employee [label="Employee"];
+    Supervisor [label="Supervisor"];
+    HR [label="HR Representative"];
+    Employee -> Supervisor;
+    Supervisor -> HR;
+    Supervisor -> Employee [label="Reject"];
+    Supervisor -> HR [label="Approve"];
+}

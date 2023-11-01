@@ -1,0 +1,40 @@
+
+
+digraph G {
+    Start [shape=circle]
+    End [shape=circle]
+    Task1 [shape=rectangle]
+    Task2 [shape=rectangle]
+    Task3 [shape=rectangle]
+    Task4 [shape=rectangle]
+    Task5 [shape=rectangle]
+    Task6 [shape=rectangle]
+    Task7 [shape=rectangle]
+    Task8 [shape=rectangle]
+    Task9 [shape=rectangle]
+    Task10 [shape=rectangle]
+    Task11 [shape=rectangle]
+    Split1 [shape=diamond]
+    Merge1 [shape=diamond]
+    Split2 [shape=diamond]
+    Merge2 [shape=diamond]
+    
+    Start -> Task1
+    Task1 -> Task2
+    Task2 -> Task3
+    Task3 -> Split1
+    Split1 -> Task4 [label="Yes"]
+    Split1 -> Task5 [label="No"]
+    Task4 -> Task6
+    Task5 -> Task7
+    Task6 -> Task8
+    Task7 -> Task8
+    Task8 -> Split2
+    Split2 -> Task9 [label="Yes"]
+    Split2 -> Task10 [label="No"]
+    Task9 -> Task11
+    Task10 -> Task11
+    Task11 -> Merge1
+    Merge1 -> Merge2
+    Merge2 -> End
+}

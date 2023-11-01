@@ -1,0 +1,18 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Guest calls room service)
+2:task: --> 3:task:(Room-service manager takes order)
+3:task: --> 4:task:(Manager submits order ticket)
+4:task: --> 5:exclusivegateway:{x}
+5:exclusivegateway: --> |80% of orders| 6:task:(Order given to sommelier)
+5:exclusivegateway: --> |20% of orders| 7:task:(Manager assigns order to waiter)
+6:task: --> 8:task:(Sommelier fetches wine)
+8:task: --> 9:task:(Sommelier prepares alcoholic beverages)
+9:task: --> 10:task:(Manager assigns order to waiter)
+10:task: --> 11:task:(Waiter readies a cart)
+11:task: --> 12:task:(Waiter gathers silverware)
+12:task: --> 13:task:(Waiter prepares nonalcoholic drinks)
+13:task: --> 14:task:(Waiter delivers order)
+14:task: --> 15:task:(Waiter returns to station)
+15:task: --> 16:task:(Waiter debits guest's account)
+16:task: --> 17:endevent:((endevent))
+7:task: --> 11:task:

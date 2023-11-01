@@ -1,0 +1,20 @@
+graph LR
+    1:startevent:((startevent)) --> 2:task:(Guest calls room service)
+    2:task: --> 3:task:(Room-service manager takes down the order)
+    3:task: --> 4:parallelgateway:{AND}
+    4:parallelgateway: --> 5:task:(Submit order ticket to the kitchen)
+    4:parallelgateway: --> 6:task:(Give order to the sommelier)
+    4:parallelgateway: --> 7:task:(Assign order to the waiter)
+    5:task: --> 8:task:(Kitchen prepares the food)
+    6:task: --> 9:task:(Sommelier fetches wine and prepares other alcoholic beverages)
+    7:task: --> 10:task:(Waiter readies a cart)
+    8:task: --> 11:parallelgateway:{AND}
+    9:task: --> 11:parallelgateway:
+    10:task: --> 11:parallelgateway:
+    11:parallelgateway: --> 12:task:(Waiter delivers order to guest's room)
+    12:task: --> 13:task:(Waiter returns to room-service station)
+    13:task: --> 14:exclusivegateway:{x}
+    14:exclusivegateway: --> |No other order to prepare or deliver| 15:task:(Debit the guest's account)
+    14:exclusivegateway: --> |Has other order to prepare or deliver| 16:task:(Wait to do the billing)
+    15:task: --> 17:endevent:((endevent))
+    16:task: --> 17:endevent:

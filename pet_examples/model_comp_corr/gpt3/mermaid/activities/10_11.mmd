@@ -1,0 +1,9 @@
+graph LR
+A[GO requests measurements] --> B[MSP checks request]
+B --> C[MSP denies request]
+B --> D[MSP performs measurement]
+D --> E[MSP informs GO of failure]
+D --> F[MSP transmits measured values]
+F --> G[GO processes measured values]
+G --> H[GO sends changed values]
+H --> I[GO transmits readings to SP]

@@ -1,0 +1,21 @@
+digraph {
+rankdir=LR;
+start_1[shape=circle label=""];
+end_1[shape=doublecircle label=""];
+"INQ transmits transaction data request"[shape=rectangle];
+"IP checks the INQ request"[shape=rectangle];
+"IP answers the INQ question"[shape=rectangle];
+"Examination of the outcome"[shape=rectangle];
+"Transmission of data or rejection"[shape=rectangle];
+seg_1[shape=diamond label="X"];
+
+start_1 -> "INQ transmits transaction data request";
+"INQ transmits transaction data request" -> "IP checks the INQ request";
+"IP checks the INQ request" -> "IP answers the INQ question";
+"IP answers the INQ question" -> "Examination of the outcome";
+"Examination of the outcome" -> seg_1;
+seg_1 -> "Transmission of data"[label="Data transmission"];
+seg_1 -> "Rejection"[label="Rejection"];
+"Transmission of data" -> end_1;
+"Rejection" -> end_1;
+}

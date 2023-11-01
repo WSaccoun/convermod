@@ -1,0 +1,22 @@
+digraph G {
+  rankdir=LR;
+  node [shape=box];
+  Start [shape=circle, label=""];
+  End [shape=doublecircle, label=""];
+  Decision1 [shape=diamond, label="Acceptable Costs?"];
+  Decision2 [shape=diamond, label="Error Detected?"];
+  Decision3 [shape=diamond, label="Error Detected?"];
+  Parallel1 [shape=box, label="Parallel Gateway"];
+  Parallel2 [shape=box, label="Parallel Gateway"];
+  Start -> "Check Defect & Calculate Cost" -> Decision1;
+  Decision1 -> "Check & Repair Hardware" [label="Yes"];
+  Decision1 -> End [label="No"];
+  "Check & Repair Hardware" -> Parallel1;
+  Parallel1 -> "Test System Functionality" -> Decision2;
+  Decision2 -> "Check & Repair Hardware" [label="Yes"];
+  Decision2 -> Parallel2 [label="No"];
+  Parallel1 -> "Check & Configure Software" -> Decision3;
+  Decision3 -> "Check & Configure Software" [label="Yes"];
+  Decision3 -> Parallel2 [label="No"];
+  Parallel2 -> "Finish Repair" -> End;
+}

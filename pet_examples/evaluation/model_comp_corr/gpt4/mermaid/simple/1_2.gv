@@ -1,0 +1,11 @@
+graph TD
+A[Customer brings in defective computer] --> B[CRS checks defect and calculates repair cost]
+B -->|If cost is acceptable| C[Hardware Check and Repair]
+B -->|If cost is not acceptable| D[Customer takes computer home unrepaired]
+C --> E[System Functionality Test]
+E -->|If error detected| C
+E -->|If no error detected| F[Software Check and Configuration]
+F --> G[System Functionality Test]
+G -->|If error detected| F
+G -->|If no error detected| H[Repair is finished]
+

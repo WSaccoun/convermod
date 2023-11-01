@@ -1,0 +1,13 @@
+graph LR
+1[(startevent)] --> 2[(task: Receive order)]
+2 --> 3[(exclusivegateway:{x})]
+3 --> 4[(task: Accept order)]
+3 --> 5[(task: Reject order)]
+4 --> 6[(task: Inform storehouse/engineering)]
+5 --> 9[(endevent)]
+6 --> 7[(task: Process part list)]
+7 --> 8[(task: Reserve/Back-order parts)]
+8 --> 10[(task: Prepare assembly)]
+10 --> 11[(task: Assemble bicycle)]
+11 --> 12[(task: Ship bicycle)]
+12 --> 13[(endevent)]

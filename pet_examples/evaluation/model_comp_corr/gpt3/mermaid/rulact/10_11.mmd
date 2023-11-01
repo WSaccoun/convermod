@@ -1,0 +1,13 @@
+graph LR
+id:startevent:((startevent)) --> id:task:GO requests measurements
+id:task:GO requests measurements --> id:task:MSP checks request
+id:task:MSP checks request --> id:exclusivegateway:{x}
+id:exclusivegateway:{x} --> |deny|id:task:MSP denies request
+id:exclusivegateway:{x} --> |perform|id:task:MSP performs measurement
+id:task:MSP denies request --> id:task:MSP informs GO of failure
+id:task:MSP performs measurement --> id:task:MSP transmits measured values
+id:task:MSP informs GO of failure --> id:task:GO processes measured values
+id:task:MSP transmits measured values --> id:task:GO processes measured values
+id:task:GO processes measured values --> id:task:GO sends changed values
+id:task:GO sends changed values --> id:task:GO transmits readings to SP
+id:task:GO transmits readings to SP --> id:endevent:((endevent))

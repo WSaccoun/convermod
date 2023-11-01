@@ -1,0 +1,8 @@
+flowchart TB
+    Start --> ClaimRegistration
+    ClaimRegistration --> ClaimExamination
+    ClaimExamination --> SettlementRecommendation
+    SettlementRecommendation --> ClaimCheck
+    ClaimCheck{Claim OK?} -->|Yes| ClaimHandlingProcess
+    ClaimCheck -->|No| SettlementRecommendation
+    ClaimHandlingProcess --> End

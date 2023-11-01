@@ -1,0 +1,23 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Customer logs into E-Shop)
+2:task: --> 3:task:(System checks credentials)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway: --> |Login successful| 5:task:(Customer selects products)
+4:exclusivegateway: --> |Login unsuccessful| 17:endevent:((endevent))
+5:task: --> 6:task:(Add product to cart)
+6:task: --> 7:task:(Save selected product)
+7:task: --> 8:task:(Check product selection)
+8:task: --> 9:exclusivegateway:{x}
+9:exclusivegateway: --> |All products selected| 10:task:(System finishes order)
+9:exclusivegateway: --> |Not all products selected| 5:task: 
+10:task: --> 11:parallelgateway:{AND}
+11:parallelgateway: --> 12:task:(Prepare payment and shipment)
+11:parallelgateway: --> 13:task:(Enter shipping address)
+12:task: --> 14:task:(Enter payment data)
+14:task: --> 15:task:(Wait for bank confirmation)
+13:task: --> 16:exclusivegateway:{x}
+16:exclusivegateway: --> |Shipping address is billing address| 18:task:(Execute address and payment steps)
+16:exclusivegateway: --> |Shipping address is not billing address| 19:task:(Enter billing address)
+18:task: --> 20:endevent:((endevent))
+19:task: --> 18:task: 
+15:task: --> 18:task:

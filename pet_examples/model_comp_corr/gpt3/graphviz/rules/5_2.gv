@@ -1,0 +1,17 @@
+
+
+digraph G {
+  rankdir=LR;
+  start_1[shape=circle label=""];
+  task_1[shape=rectangle label="Submit Vacation Request"];
+  task_2[shape=rectangle label="Approve/Reject Request"];
+  task_3[shape=rectangle label="Notify HR Representative"];
+  end_1[shape=doublecircle label=""];
+  seg_1[shape=diamond label="X"];
+  start_1 -> task_1;
+  task_1 -> seg_1;
+  seg_1 -> task_2[label="Approved"];
+  seg_1 -> task_3[label="Rejected"];
+  task_2 -> end_1;
+  task_3 -> end_1;
+}

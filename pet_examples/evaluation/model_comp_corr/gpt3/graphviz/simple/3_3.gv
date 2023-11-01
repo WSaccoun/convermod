@@ -1,0 +1,13 @@
+
+
+digraph {
+    rankdir="LR";
+    node [shape=box];
+    RegisterClaim -> ExamineClaim;
+    ExamineClaim -> WriteRecommendation;
+    WriteRecommendation -> CheckRecommendation;
+    CheckRecommendation -> OK;
+    CheckRecommendation -> NotOK;
+    NotOK -> ExamineClaim;
+    OK -> Proceed;
+}

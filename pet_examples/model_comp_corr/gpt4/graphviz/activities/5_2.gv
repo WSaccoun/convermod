@@ -1,0 +1,10 @@
+digraph G {
+  "Employee submits vacation request" -> "Register vacation request"
+  "Register vacation request" -> "Supervisor receives request"
+  "Supervisor receives request" -> "Supervisor approves/rejects request"
+  "Supervisor approves/rejects request" -> "Return application to employee (if rejected)"
+  "Supervisor approves/rejects request" -> "Generate notification (if approved)"
+  "Return application to employee (if rejected)" -> "Review rejection reasons (if rejected)"
+  "Generate notification (if approved)" -> "Notify Human Resources Representative (if approved)"
+  "Notify Human Resources Representative (if approved)" -> "Complete management procedures"
+}

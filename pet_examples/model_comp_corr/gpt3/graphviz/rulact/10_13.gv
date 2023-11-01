@@ -1,0 +1,19 @@
+
+
+digraph G {
+  rankdir=LR;
+  start_1[shape=circle label=""];
+  task1[shape=rectangle label="INQ transmits request"];
+  task2[shape=rectangle label="IP checks request"];
+  task3[shape=rectangle label="IP answers question"];
+  task4[shape=rectangle label="Transmission of data"];
+  task5[shape=rectangle label="Rejection"];
+  end_1[shape=doublecircle label=""];
+  start_1 -> task1;
+  task1 -> task2;
+  task2 -> task3;
+  task3 -> task4;
+  task3 -> task5;
+  task4 -> end_1;
+  task5 -> end_1;
+}

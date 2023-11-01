@@ -1,0 +1,18 @@
+digraph {
+rankdir=LR;
+start_1[shape=circle label=""];
+"task 1: MSPN sends dismissal to MSPO"[shape=rectangle];
+"task 2: MSPO reviews the dismissal"[shape=rectangle];
+seg_1[shape=diamond label="X"];
+"task 3: MSPO rejects the dismissal"[shape=rectangle];
+"task 4: MSPO confirms the dismissal"[shape=rectangle];
+end_1[shape=doublecircle label=""];
+end_2[shape=doublecircle label=""];
+start_1 -> "task 1: MSPN sends dismissal to MSPO";
+"task 1: MSPN sends dismissal to MSPO" -> "task 2: MSPO reviews the dismissal";
+"task 2: MSPO reviews the dismissal" -> seg_1;
+seg_1 -> "task 3: MSPO rejects the dismissal"[label="Rejection"];
+seg_1 -> "task 4: MSPO confirms the dismissal"[label="Confirmation"];
+"task 3: MSPO rejects the dismissal" -> end_1;
+"task 4: MSPO confirms the dismissal" -> end_2;
+}

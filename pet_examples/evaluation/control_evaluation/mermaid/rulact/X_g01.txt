@@ -1,0 +1,22 @@
+graph LR
+    1:startevent:((startevent)) --> 2:task:(Select a course)
+    2:task: --> 3:task:(Check slot availability)
+    3:task: --> 4:exclusivegateway:{x}
+    4:exclusivegateway:{x} --> |slots are free| 5:task:(Choose course and date)
+    5:task: --> 6:task:(Check existing account)
+    6:task: --> 7:exclusivegateway:{x}
+    7:exclusivegateway:{x} --> |account exists| 9:task:(Log into account)
+    7:exclusivegateway:{x} --> |no account| 8:task:(Verify university registration)
+    8:task: --> 10:exclusivegateway:{x}
+    10:exclusivegateway:{x} --> |registered at eligible university| 11:task:(Register account)
+    10:exclusivegateway:{x} --> |not registered at eligible university| 12:task:(Request activation)
+    12:task: --> 13:task:(Wait for response)
+    13:task: --> 9:task: 
+    11:task: --> 9:task: 
+    9:task: --> 14:task:(Connect to Twitter)
+    14:task: --> 15:task:(Tweet to friends)
+    15:task: --> 16:task:(Complete course registration)
+    16:task: --> 17:task:(Provide payment information)
+    17:task: --> 18:endevent:((endevent))
+    18:endevent: --> 19:task:(Receive course ticket)
+    19:task: --> 20:endevent:((endevent))

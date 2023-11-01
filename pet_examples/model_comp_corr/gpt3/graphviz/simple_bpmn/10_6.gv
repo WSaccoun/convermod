@@ -1,0 +1,17 @@
+
+
+digraph G {
+    Start [shape=circle]
+    End [shape=circle]
+    MSPN [shape=box]
+    MSPO [shape=box]
+    Reject [shape=diamond]
+    Confirm [shape=diamond]
+    
+    Start -> MSPN
+    MSPN -> MSPO
+    MSPO -> Reject
+    MSPO -> Confirm
+    Reject -> End
+    Confirm -> End
+}

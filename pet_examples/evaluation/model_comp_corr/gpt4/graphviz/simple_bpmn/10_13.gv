@@ -1,0 +1,21 @@
+digraph G {
+  rankdir = LR;
+  node [shape=ellipse, fontname=Helvetica, fontsize=10];
+  edge [fontname=Helvetica, fontsize=10];
+  Start [shape=circle, label="", width=0.5, style=filled, fillcolor=black];
+  End [shape=doublecircle, label="", width=0.5, style=filled, fillcolor=black];
+  Gateway1 [shape=diamond, label="Check Request", width=0.5, height=0.5];
+  Gateway2 [shape=diamond, label="", width=0.5, height=0.5];
+  Task1 [shape=box, label="INQ Transmits Data Request", width=1, height=0.5];
+  Task2 [shape=box, label="IP Checks Request", width=1, height=0.5];
+  Task3 [shape=box, label="IP Transmits Data", width=1, height=0.5];
+  Task4 [shape=box, label="IP Rejects", width=1, height=0.5];
+  Start -> Task1;
+  Task1 -> Task2;
+  Task2 -> Gateway1;
+  Gateway1 -> Task3 [label="Request Approved"];
+  Gateway1 -> Task4 [label="Request Rejected"];
+  Task3 -> Gateway2;
+  Task4 -> Gateway2;
+  Gateway2 -> End;
+}

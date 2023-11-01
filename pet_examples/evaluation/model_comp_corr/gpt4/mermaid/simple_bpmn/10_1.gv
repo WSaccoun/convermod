@@ -1,0 +1,10 @@
+flowchart TB
+    Start --> Task1
+    Task1[MPON sends the dismissal to MPOO] --> Task2
+    Task2[MPOO reviews the dismissal] --> Gateway1{Decision}
+    Gateway1 -->|Opposes| Task3
+    Task3[MPOO opposes the dismissal of MPON] --> End
+    Gateway1 -->|Confirms| Task4
+    Task4[MPOO confirms the dismissal of MPON] --> End
+    End
+

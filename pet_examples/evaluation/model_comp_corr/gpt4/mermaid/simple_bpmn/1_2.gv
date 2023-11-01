@@ -1,0 +1,12 @@
+graph TB
+    Start((Start)) --> CheckDefect{Check Defect}
+    CheckDefect -->|Defect Found| RepairCost{Repair Cost Calculation}
+    RepairCost -->|Costs Acceptable| RepairHardware{Check and Repair Hardware}
+    RepairCost -->|Costs Not Acceptable| End1((End))
+    RepairHardware --> Test1{Test System Functionality}
+    Test1 -->|No Error| RepairSoftware{Check and Configure Software}
+    Test1 -->|Error| RepairHardware
+    RepairSoftware --> Test2{Test System Functionality}
+    Test2 -->|No Error| End2((End))
+    Test2 -->|Error| RepairSoftware
+

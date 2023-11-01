@@ -1,0 +1,33 @@
+digraph {
+rankdir=LR;
+"start_1"[shape=circle label=""];
+"end_1"[shape=doublecircle label=""];
+"seg_1"[shape=diamond label="X"];
+"seg_2"[shape=diamond label="X"];
+"spg_1"[shape=diamond label="AND"];
+"mpg_1"[shape=diamond label="AND"];
+"Check computer defect"[shape=rectangle];
+"Calculate repair cost"[shape=rectangle];
+"Customer decision"[shape=rectangle];
+"Check and repair hardware"[shape=rectangle];
+"Check and configure software"[shape=rectangle];
+"Test system functionality"[shape=rectangle];
+"Execute arbitrary repair activity"[shape=rectangle];
+"Finish repair"[shape=rectangle];
+
+"start_1" -> "Check computer defect";
+"Check computer defect" -> "Calculate repair cost";
+"Calculate repair cost" -> "Customer decision";
+"Customer decision" -> "seg_1"[label="Costs acceptable"];
+"seg_1" -> "spg_1"[label="Yes"];
+"seg_1" -> "end_1"[label="No"];
+"spg_1" -> "Check and repair hardware";
+"spg_1" -> "Check and configure software";
+"Check and repair hardware" -> "Test system functionality";
+"Check and configure software" -> "Test system functionality";
+"Test system functionality" -> "seg_2"[label="Error detected"];
+"seg_2" -> "Execute arbitrary repair activity"[label="Yes"];
+"seg_2" -> "Finish repair"[label="No"];
+"Execute arbitrary repair activity" -> "Test system functionality";
+"Finish repair" -> "end_1";
+}

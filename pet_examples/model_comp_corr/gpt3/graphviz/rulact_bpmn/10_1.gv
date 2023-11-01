@@ -1,0 +1,21 @@
+
+
+digraph G {
+  rankdir=LR;
+  start_1[shape=circle label=""];
+  task1[shape=rectangle label="Send dismissal"];
+  task2[shape=rectangle label="Review dismissal"];
+  task3[shape=rectangle label="Oppose dismissal"];
+  task4[shape=rectangle label="Confirm dismissal"];
+  seg_1[shape=diamond label="X"];
+  meg_1[shape=diamond label="X"];
+  end_1[shape=doublecircle label=""];
+  start_1 -> task1;
+  task1 -> seg_1;
+  seg_1 -> task2[label="Yes"];
+  seg_1 -> task3[label="No"];
+  task2 -> meg_1;
+  task3 -> meg_1;
+  meg_1 -> task4;
+  task4 -> end_1;
+}

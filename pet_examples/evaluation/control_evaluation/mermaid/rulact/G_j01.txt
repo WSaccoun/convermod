@@ -1,0 +1,19 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Identify desired resources)
+2:task: --> 3:task:(Prioritize resource collection)
+3:task: --> 4:task:(Determine resource dependencies)
+4:task: --> 5:task:(Create custom farming bot)
+5:task: --> 6:task:(Start bot farming)
+6:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway:{x} --> |Natural disasters| 8:task:(Handle natural disasters)
+8:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway:{x} --> |Milestones reached| 9:task:(Reach farming milestones)
+9:task: --> 10:task:(Receive milestone notifications)
+10:task: --> 11:task:(Update farming list)
+11:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway:{x} --> |Farming complete| 12:task:(Complete farming process)
+12:task: --> 13:exclusivegateway:{x}
+13:exclusivegateway:{x} --> |Brag to friends| 14:task:(Brag to friends)
+14:task: --> 15:endevent:((endevent))
+13:exclusivegateway:{x} --> |Send materials| 16:task:(Send materials to friends)
+16:task: --> 15:endevent:((endevent))

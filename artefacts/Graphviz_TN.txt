@@ -1,0 +1,26 @@
+Every graph must have LR (Left to Right) direction. It consists of nodes and edges.
+Each node has following structure: "name"[attributes]
+There are 5 different types of nodes: start event, end event, task, exclusive gateway and parallel gateway.
+Each node has its specific attributes based on the type of the node.
+  start node:        "start_1"[shape=circle label=""];
+  end node:          "end_1"[shape=doublecircle label=""];
+In both start and end nodes labels are always empty.
+  task:              "task label"[shape=rectangle];
+Task labels are always unique.
+  exclusive gateway: "seg_1"[shape=diamond label="X"];  
+  parallel gateway:  "spg_1"[shape=diamond label="AND"];
+
+Gateways are not tasks. They merely indicate that the control flow of the process is splitted or merged.
+Following names "seg_1" and "meg_1" should be used for splitting and merging exclusive gateways.
+Following names "spg_1" and "mpg_1" should be used for splitting and merging parallel gateways.
+
+Every time when new start, end or gateways node is used, the counter should be incrimented at 1.
+
+All elements are connected with each other with the help of the edges.
+  edge: ->
+examples:
+"start" -> "task 1"
+"task 1" -> "task 2"
+
+If there are conditions or annotations, it is necessary to use text on links (i.e., edge labels)
+    edge label:  "task 1" -> "task 2"[label="condition 1"]

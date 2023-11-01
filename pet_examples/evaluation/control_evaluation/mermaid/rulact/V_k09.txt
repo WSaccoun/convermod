@@ -1,0 +1,20 @@
+graph LR
+    1:startevent:((startevent)) --> 2:task:(Read order from system)
+    2:task: --> 3:exclusivegateway:{x}
+    3:exclusivegateway:{x} --> |Product in stock| 4:task:(Withdraw product from warehouse)
+    3:exclusivegateway:{x} --> |Product not in stock| 5:task:(Reorder product from wholesaler)
+    5:task: --> 6:task:(Wait for product arrival)
+    6:task: --> 7:exclusivegateway:{x}
+    7:exclusivegateway:{x} --> |Wait more than 10 days| 8:task:(Demand delay penalty)
+    7:exclusivegateway:{x} --> |Wait less than 10 days| 9:task:(Register product in system)
+    8:task: --> 9:task:
+    4:task: --> 10:task:(Register product in system)
+    10:task: --> 11:exclusivegateway:{x}
+    11:exclusivegateway:{x} --> |Order is ready| 12:parallelgateway:{AND}
+    12:parallelgateway:{AND} --> 13:task:(Request courier service)
+    12:parallelgateway:{AND} --> 14:task:(Pack products for shipment)
+    13:task: --> 15:task:(Ship products)
+    14:task: --> 15:task:
+    15:task: --> 16:endevent:((endevent))
+    11:exclusivegateway:{x} --> |Order is not ready| 17:task:(Select next product)
+    17:task: --> 3:exclusivegateway:{x}

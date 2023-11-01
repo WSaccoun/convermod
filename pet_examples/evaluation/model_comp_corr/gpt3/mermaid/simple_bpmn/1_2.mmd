@@ -1,0 +1,10 @@
+graph LR
+A[Start] --> B[Check and Repair Hardware]
+B --> C[Test System Functionality]
+C -->|Error Detected| D[Arbitrary Repair Activity]
+D --> C
+C -->|No Error Detected| E[Check and Configure Software]
+E --> F[Test System Functionality]
+F -->|Error Detected| D
+D --> F
+F -->|No Error Detected| G[End]

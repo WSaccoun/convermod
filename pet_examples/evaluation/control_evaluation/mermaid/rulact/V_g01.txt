@@ -1,0 +1,15 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Receive order)
+2:task: --> 3:task:(Ask menu preference)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway: --> |wants menu| 5:task:(Prepare drink)
+5:task: --> 6:task:(Ask side preference)
+6:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway: --> |wants fries| 8:task:(Prepare fries)
+7:exclusivegateway: --> |wants wedges| 9:task:(Prepare wedges)
+8:task: --> 10:task:(Prepare burger)
+9:task: --> 10:task:
+10:task: --> 11:task:(Give status updates)
+11:task: --> 12:task:(Deliver order via conveyor)
+12:task: --> 13:endevent:((endevent))
+4:exclusivegateway: --> |just burger| 10:task:

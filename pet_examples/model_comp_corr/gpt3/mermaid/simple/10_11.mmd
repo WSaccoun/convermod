@@ -1,0 +1,13 @@
+graph LR
+GO[GO] --> Request[Request Measurements]
+Request --> MSP[MSP]
+MSP -->|Deny| GO
+MSP -->|Perform| Measurement[Measurement]
+Measurement --> MSP
+MSP -->|Inform| GO
+MSP -->|Transmit| Values[Measured Values]
+Values --> GO
+GO --> Process[Process Values]
+Process --> Changed[Changed Values]
+Changed --> MSP
+MSP --> SP[SP]

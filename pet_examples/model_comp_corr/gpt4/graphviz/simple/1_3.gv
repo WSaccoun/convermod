@@ -1,0 +1,15 @@
+digraph G {
+  "Guest calls room service" -> "Room-service manager takes down the order"
+  "Room-service manager takes down the order" -> "Order ticket submitted to kitchen"
+  "Room-service manager takes down the order" -> "Order given to sommelier"
+  "Order ticket submitted to kitchen" -> "Kitchen prepares food"
+  "Order given to sommelier" -> "Sommelier fetches wine and prepares alcoholic beverages"
+  "Room-service manager takes down the order" -> "Order assigned to waiter"
+  "Order assigned to waiter" -> "Waiter readies a cart"
+  "Waiter readies a cart" -> "Waiter is responsible for nonalcoholic drinks"
+  "Kitchen prepares food" -> "Waiter delivers food, wine, and cart to guest's room"
+  "Sommelier fetches wine and prepares alcoholic beverages" -> "Waiter delivers food, wine, and cart to guest's room"
+  "Waiter is responsible for nonalcoholic drinks" -> "Waiter delivers food, wine, and cart to guest's room"
+  "Waiter delivers food, wine, and cart to guest's room" -> "Waiter returns to room-service station"
+  "Waiter returns to room-service station" -> "Waiter debits the guest's account"
+}

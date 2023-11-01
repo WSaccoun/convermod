@@ -1,0 +1,9 @@
+Each model has only one start event, one or more end events, activities (also called tasks), and gateways. 
+A start event shows where a process begins. It has solely one outgoing element and no incoming elements. An end event marks where a process ends. It has one incoming element and no outgoing elements.
+There are multiple tasks and paths between start and end events. 
+A path through the process model represents one of the variants of how the process could be executed. 
+Tasks represent the work performed within a process. A task will normally take some time to perform, involve one or more resources, require some type of input and produce some sort of output. Each task has a label.
+Gateways are modeling elements that control the flow of work through the paths of the process. Gateways themselves are not activities. They just split and merge the process flow. Gateways are unnecessary if the process flow does not require controlling. The two most commonly used gateways are the exclusive and parallel gateways.
+If, after some particular task, a decision is to be made (i.e. alternative paths occur), a splitting exclusive gateway is to be used. Only one of multiple outgoing paths will be (exclusively) executed. After that, the process flow should be merged again with the help of a merging exclusive gateway. 
+If, after some particular task, multiple tasks should be executed at the same time, a splitting parallel gateway is to be used. After the execution of parallel tasks, there is always a synchronization point (waiting for several separate paths to reach a certain point before the process can continue). This synchronization point is represented by a merging parallel gateway. 
+Every split in a control flow should always be merged. Only gateways of the same type could be used for splitting and merging.

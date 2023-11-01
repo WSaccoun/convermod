@@ -1,0 +1,24 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Identify required parts)
+2:task: --> 3:task:(Query all web shops)
+3:task: --> 4:task:(Compare prices and availability)
+4:task: --> 5:task:(Create order list per shop)
+5:task: --> 6:exclusivegateway:{x}
+6:exclusivegateway:{x} --> |If one shop has not enough parts| 7:task:(Order from multiple shops if necessary)
+6:exclusivegateway:{x} --> |If one shop has enough parts| 8:task:(Prioritize cheapest parts)
+7:task: --> 8:task:
+8:task: --> 9:task:(Track delivery dates)
+9:task: --> 10:task:(Start building upon arrival)
+10:task: --> 11:task:(Monitor parts stock)
+11:task: --> 12:exclusivegateway:{x}
+12:exclusivegateway:{x} --> |If stock falls below 5| 13:task:(Reorder parts if necessary)
+12:exclusivegateway:{x} --> |If stock is above 5| 14:task:(Prioritize cheapest parts for reorder)
+13:task: --> 14:task:
+14:task: --> 15:exclusivegateway:{x}
+15:exclusivegateway:{x} --> |If stock falls below 3| 16:task:(Prioritize fastest delivery if stock is low)
+15:exclusivegateway:{x} --> |If stock is above 3| 17:task:(Continue building)
+16:task: --> 17:task:
+17:task: --> 18:exclusivegateway:{x}
+18:exclusivegateway:{x} --> |If stock is zero| 19:task:(Write complaint email if stock is zero)
+18:exclusivegateway:{x} --> |If stock is above zero| 20:endevent:((endevent))
+19:task: --> 20:endevent:((endevent))

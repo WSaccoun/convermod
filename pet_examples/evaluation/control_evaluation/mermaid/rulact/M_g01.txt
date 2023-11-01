@@ -1,0 +1,19 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Instruct artist for project)
+2:task: --> 3:task:(Send artist sketches)
+3:task: --> 4:task:(Request changes from artist)
+4:task: --> 5:task:(Finalize model design)
+5:task: --> 6:task:(Choose plastic color)
+6:task: --> 7:exclusivegateway:{x}
+7:exclusivegateway:{x} --> |In stock| 8:task:(Check color stock)
+7:exclusivegateway:{x} --> |Not in stock| 9:task:(Order color)
+8:task: --> 10:exclusivegateway:{x}
+10:exclusivegateway:{x} --> |Under 100 grams| 11:task:(Add color to shopping list)
+10:exclusivegateway:{x} --> |Over 100 grams| 12:task:(Turn on 3D printer)
+9:task: --> 12:task:
+11:task: --> 12:task:
+12:task: --> 13:task:(Heat up printer bed)
+13:task: --> 14:task:(Heat up extruder)
+14:task: --> 15:task:(Monitor printer status)
+15:task: --> 16:task:(Generate gcode file)
+16:task: --> 17:endevent:((endevent))

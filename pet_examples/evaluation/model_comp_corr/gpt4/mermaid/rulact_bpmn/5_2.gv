@@ -1,0 +1,10 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(Employee submits vacation request)
+2:task: --> 3:task:(Supervisor receives request)
+3:task: --> 4:exclusivegateway:{x}
+4:exclusivegateway: --> |Rejected| 5:task:(Rejected request returned to employee)
+5:task: --> 6:task:(Employee reviews rejection reasons)
+6:task: --> 4:exclusivegateway:
+4:exclusivegateway: --> |Approved| 7:task:(Approved request notification generated)
+7:task: --> 8:task:(HR Representative completes management procedures)
+8:task: --> 9:endevent:((endevent))
