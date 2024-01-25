@@ -1,0 +1,16 @@
+A graph must always have a LR (Left to Right) direction.
+Each Mermaid.js node must have the following structure: id:type:shape with
+  id -  is a unique identifier. Integer from 1 to n. Each node has a unique identifier.
+  type - defines the type of the element (e.g. 'startevent' to denote a start event).
+Each Mermaid.js node must also include a text label, i.e. 2:task:(task 1).
+Possible types are: start event, end event, task, exclusive gateway and parallel gateway.
+Based on the type of the node following shapes and texts are to be used:
+  startevent: ((startevent)) i.e., id:startevent:((startevent))
+  endevent: ((endevent)) i.e., id:endevent:((endevent))
+  task: (task label) i.e., id:task:(task label)
+  exclusivegateway: {x} i.e., id:exclusivegateway:{x}
+  parallelgateway: {AND} i.e., id:exclusivegateway:{AND}
+All elements are connected with each other with the help of the directions, i.e., direction: -->
+If there are some conditions or annotations, it is necessary to use text on links (i.e., edge labels)
+  edge label: |condition or annotation|
+Edge labels are always located between 2 nodes: id:exclusivegateway:{x} --> |condition or annotation|id:task:(task label)
