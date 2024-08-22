@@ -1,0 +1,9 @@
+graph LR
+1:startevent:((startevent)) --> 2:task:(INQ transmits transaction data request to IP)
+2:task:(INQ transmits transaction data request to IP) --> 3:task:(IP checks the request of the INQ)
+3:task:(IP checks the request of the INQ) --> 4:exclusivegateway:{x}
+4:exclusivegateway:{x} --> |positive outcome| 5:task:(IP transmits data to INQ)
+4:exclusivegateway:{x} --> |negative outcome| 6:task:(IP rejects the request)
+5:task:(IP transmits data to INQ) --> 7:endevent:((endevent))
+6:task:(IP rejects the request) --> 7:endevent:((endevent))
+
